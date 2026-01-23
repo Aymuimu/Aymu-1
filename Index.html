@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe0f0 25%, #fff5fb 50%, #ffe8f5 75%, #ffeef8 100%);
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .butterfly {
+            position: fixed;
+            font-size: 2rem;
+            animation: float 15s infinite;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, -100px) rotate(10deg); }
+            50% { transform: translate(-50px, -200px) rotate(-10deg); }
+            75% { transform: translate(150px, -150px) rotate(15deg); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #d4507d;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(212, 80, 125, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #8b4566;
+            font-style: italic;
+        }
+
+        .bow {
+            font-size: 3rem;
+            margin: 20px 0;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .player-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(212, 80, 125, 0.2);
+            margin-bottom: 30px;
+            border: 3px solid #ffc0e0;
+        }
+
+        .now-playing {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .now-playing h2 {
+            color: #d4507d;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .now-playing p {
+            color: #8b4566;
+            font-style: italic;
+        }
+
+        .audio-player {
+            background: linear-gradient(135deg, #d4507d 0%, #e87aa5 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(212, 80, 125, 0.3);
+        }
+
+        .album-art {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #fff0f8 0%, #ffe8f3 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        .playlist {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .song-item {
+            background: linear-gradient(135deg, #fff0f8 0%, #ffe8f3 100%);
+            padding: 15px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .song-item:hover {
+            transform: translateY(-5px);
+            border-color: #d4507d;
+            box-shadow: 0 8px 20px rgba(212, 80, 125, 0.3);
+        }
+
+        .song-item.active {
+            background: linear-gradient(135deg, #d4507d 0%, #e87aa5 100%);
+            color: white;
+            border-color: #d4507d;
+        }
+
+        .song-item::before {
+            content: '🎵';
+            margin-right: 8px;
+        }
+
+        .song-item.active::before {
+            content: '▶️';
+        }
+
+        .cat-decoration {
+            text-align: center;
+            font-size: 2rem;
+            margin: 30px 0;
+            opacity: 0.7;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #8b4566;
+            font-size: 1.1rem;
+        }
+
+        .heart {
+            color: #d4507d;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .control-btn {
+            background: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .control-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .control-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="butterfly" style="top: 10%; left: 10%; animation-delay: 0s;">🦋</div>
+    <div class="butterfly" style="top: 20%; right: 15%; animation-delay: 2s;">🦋</div>
+    <div class="butterfly" style="top: 60%; left: 5%; animation-delay: 4s;">🦋</div>
+    <div class="butterfly" style="top: 70%; right: 10%; animation-delay: 6s;">🦋</div>
+    <div class="butterfly" style="top: 40%; left: 80%; animation-delay: 3s;">🦋</div>
+
+    <div class="container">
+        <header>
+            <h1>Happy Anniversary!</h1>
+            <div class="bow">🎀</div>
+            <p class="subtitle">Our Special Songs</p>
+        </header>
+
+        <div class="player-container">
+            <div class="now-playing">
+                <h2 id="songTitle">Select a song to begin</h2>
+                <p id="songNumber"></p>
+            </div>
+
+            <div class="audio-player">
+                <div class="album-art" id="albumArt">🎵</div>
+                <audio id="audioPlayer" controls>
+                    <source id="audioSource" src="" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="controls">
+                    <button class="control-btn" onclick="previousSong()">⏮️</button>
+                    <button class="control-btn" onclick="nextSong()">⏭️</button>
+                </div>
+            </div>
+            
+            <div class="playlist" id="playlist"></div>
+        </div>
+
+        <div class="cat-decoration">
+            🐱 😻 🐱 😻 🐱
+        </div>
+
+        <div class="footer">
+            Made with <span class="heart">❤️</span> for you
+        </div>
+    </div>
+
+    <script>
+        const songs = [
+            { title: "Song 1", file: "songs/song1.mp3" },
+            { title: "Song 2", file: "songs/song2.mp3" },
+            { title: "Song 3", file: "songs/song3.mp3" },
+            { title: "Song 4", file: "songs/song4.mp3" },
+            { title: "Song 5", file: "songs/song5.mp3" },
+            { title: "Song 6", file: "songs/song6.mp3" },
+            { title: "Song 7", file: "songs/song7.mp3" },
+            { title: "Song 8", file: "songs/song8.mp3" },
+            { title: "Song 9", file: "songs/song9.mp3" },
+            { title: "Song 10", file: "songs/song10.mp3" },
+            { title: "Song 11", file: "songs/song11.mp3" },
+            { title: "Song 12", file: "songs/song12.mp3" },
+            { title: "Song 13", file: "songs/song13.mp3" },
+            { title: "Song 14", file: "songs/song14.mp3" },
+            { title: "Song 15", file: "songs/song15.mp3" },
+            { title: "Song 16", file: "songs/song16.mp3" },
+            { title: "Song 17", file: "songs/song17.mp3" },
+            { title: "Song 18", file: "songs/song18.mp3" },
+            { title: "Song 19", file: "songs/song19.mp3" },
+            { title: "Song 20", file: "songs/song20.mp3" }
+        ];
+
+        let currentSongIndex = -1;
+        const audioPlayer = document.getElementById('audioPlayer');
+        const audioSource = document.getElementById('audioSource');
+
+        function playSong(index) {
+            currentSongIndex = index;
+            const song = songs[index];
+            
+            audioSource.src = song.file;
+            audioPlayer.load();
+            audioPlayer.play();
+            
+            document.getElementById('songTitle').textContent = song.title;
+            document.getElementById('songNumber').textContent = `Track ${index + 1} of ${songs.length}`;
+            
+            // Update album art animation
+            const albumArt = document.getElementById('albumArt');
+            const icons = ['🎵', '🎶', '💕', '🎀', '🦋', '😻'];
+            albumArt.textContent = icons[index % icons.length];
+            
+            // Update active state
+            document.querySelectorAll('.song-item').forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function nextSong() {
+            if (currentSongIndex < songs.length - 1) {
+                playSong(currentSongIndex + 1);
+            } else {
+                playSong(0);
+            }
+        }
+
+        function previousSong() {
+            if (currentSongIndex > 0) {
+                playSong(currentSongIndex - 1);
+            } else {
+                playSong(songs.length - 1);
+            }
+        }
+
+        // Auto-play next song when current ends
+        audioPlayer.addEventListener('ended', nextSong);
+
+        // Create playlist
+        const playlist = document.getElementById('playlist');
+        songs.forEach((song, index) => {
+            const div = document.createElement('div');
+            div.className = 'song-item';
+            div.textContent = song.title;
+            div.onclick = () => playSong(index);
+            playlist.appendChild(div);
+        });
+    </script>
+</body>
+</html>
