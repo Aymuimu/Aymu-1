@@ -22,21 +22,22 @@
         .butterfly {
             position: fixed;
             font-size: 2rem;
-            animation: float 15s infinite;
-            opacity: 0.6;
+            animation: float 20s infinite ease-in-out;
+            opacity: 0.7;
             pointer-events: none;
             z-index: 1;
+            filter: drop-shadow(0 2px 4px rgba(212, 80, 125, 0.3));
         }
 
         @keyframes float {
             0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(100px, -100px) rotate(10deg); }
-            50% { transform: translate(-50px, -200px) rotate(-10deg); }
-            75% { transform: translate(150px, -150px) rotate(15deg); }
+            25% { transform: translate(120px, -120px) rotate(15deg); }
+            50% { transform: translate(-80px, -200px) rotate(-15deg); }
+            75% { transform: translate(180px, -100px) rotate(20deg); }
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 40px 20px;
             position: relative;
@@ -46,181 +47,299 @@
         header {
             text-align: center;
             margin-bottom: 50px;
-            animation: fadeIn 1s ease-in;
+            animation: fadeIn 1.5s ease-in;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
+            from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
-            font-size: 3rem;
-            color: #d4507d;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(212, 80, 125, 0.2);
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #d4507d, #e87aa5, #ff9ec4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 8px rgba(212, 80, 125, 0.2);
+            filter: drop-shadow(0 2px 4px rgba(212, 80, 125, 0.3));
         }
 
         .subtitle {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: #8b4566;
             font-style: italic;
+            text-shadow: 0 1px 2px rgba(139, 69, 102, 0.1);
         }
 
         .bow {
-            font-size: 3rem;
+            font-size: 4rem;
             margin: 20px 0;
             display: inline-block;
-            animation: bounce 2s infinite;
+            animation: bounce 2.5s infinite ease-in-out;
+            filter: drop-shadow(0 4px 8px rgba(212, 80, 125, 0.3));
         }
 
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.05); }
         }
 
         .player-container {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 25px;
-            padding: 30px;
-            box-shadow: 0 10px 40px rgba(212, 80, 125, 0.2);
-            margin-bottom: 30px;
-            border: 3px solid #ffc0e0;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 35px;
+            box-shadow: 
+                0 20px 60px rgba(212, 80, 125, 0.25),
+                0 10px 30px rgba(212, 80, 125, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            border: 3px solid rgba(255, 192, 224, 0.8);
+            backdrop-filter: blur(10px);
+            transform: translateZ(0);
         }
 
         .now-playing {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .now-playing h2 {
-            color: #d4507d;
-            font-size: 1.8rem;
-            margin-bottom: 5px;
+            background: linear-gradient(135deg, #d4507d, #e87aa5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2rem;
+            margin-bottom: 8px;
         }
 
         .now-playing p {
             color: #8b4566;
             font-style: italic;
+            font-size: 1.1rem;
         }
 
         .audio-player {
-            background: linear-gradient(135deg, #d4507d 0%, #e87aa5 100%);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(212, 80, 125, 0.3);
+            background: linear-gradient(135deg, #d4507d 0%, #e87aa5 50%, #ff9ec4 100%);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 
+                0 15px 40px rgba(212, 80, 125, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transform: translateZ(20px);
         }
 
         .album-art {
             width: 100%;
-            max-width: 300px;
-            height: 300px;
-            margin: 0 auto 20px;
+            max-width: 320px;
+            height: 320px;
+            margin: 0 auto 25px;
             background: linear-gradient(135deg, #fff0f8 0%, #ffe8f3 100%);
-            border-radius: 15px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 6rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            font-size: 8rem;
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.25),
+                inset 0 -2px 10px rgba(212, 80, 125, 0.1),
+                inset 0 2px 10px rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .album-art::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: rotate(0deg) translate(-100%, -100%); }
+            100% { transform: rotate(0deg) translate(100%, 100%); }
+        }
+
+        .album-art:hover {
+            transform: scale(1.05) rotateZ(2deg);
+        }
+
+        .album-art-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .vinyl {
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         audio {
             width: 100%;
-            margin-top: 10px;
-            border-radius: 10px;
+            margin-top: 15px;
+            border-radius: 12px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
         }
 
         .playlist {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
         }
 
         .song-item {
-            background: linear-gradient(135deg, #fff0f8 0%, #ffe8f3 100%);
-            padding: 15px 20px;
-            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(255, 240, 248, 0.9) 0%, rgba(255, 232, 243, 0.9) 100%);
+            padding: 18px 24px;
+            border-radius: 18px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 2px solid transparent;
             position: relative;
             overflow: hidden;
+            box-shadow: 
+                0 4px 15px rgba(212, 80, 125, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+            transform: translateZ(0);
+        }
+
+        .song-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .song-item:hover::after {
+            left: 100%;
         }
 
         .song-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.02);
             border-color: #d4507d;
-            box-shadow: 0 8px 20px rgba(212, 80, 125, 0.3);
+            box-shadow: 
+                0 12px 30px rgba(212, 80, 125, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7);
         }
 
         .song-item.active {
             background: linear-gradient(135deg, #d4507d 0%, #e87aa5 100%);
             color: white;
             border-color: #d4507d;
+            box-shadow: 
+                0 12px 35px rgba(212, 80, 125, 0.5),
+                inset 0 -2px 10px rgba(0, 0, 0, 0.2),
+                inset 0 2px 10px rgba(255, 255, 255, 0.3);
+            transform: translateY(-8px) scale(1.05);
         }
 
         .song-item::before {
             content: '🎵';
-            margin-right: 8px;
+            margin-right: 10px;
+            font-size: 1.2em;
         }
 
         .song-item.active::before {
             content: '▶️';
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
         }
 
         .cat-decoration {
             text-align: center;
-            font-size: 2rem;
-            margin: 30px 0;
-            opacity: 0.7;
+            font-size: 2.5rem;
+            margin: 40px 0;
+            opacity: 0.8;
+            filter: drop-shadow(0 2px 4px rgba(212, 80, 125, 0.2));
         }
 
         .footer {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 60px;
             color: #8b4566;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
         .heart {
             color: #d4507d;
             animation: heartbeat 1.5s infinite;
+            display: inline-block;
         }
 
         @keyframes heartbeat {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.15); }
         }
 
         .controls {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .control-btn {
             background: white;
             border: none;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 1.5rem;
+            width: 60px;
+            height: 60px;
+            font-size: 1.8rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.25),
+                inset 0 -2px 5px rgba(0, 0, 0, 0.1),
+                inset 0 2px 5px rgba(255, 255, 255, 0.5);
         }
 
         .control-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: scale(1.15) translateY(-3px);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                inset 0 -2px 5px rgba(0, 0, 0, 0.1),
+                inset 0 2px 5px rgba(255, 255, 255, 0.5);
         }
 
         .control-btn:active {
             transform: scale(0.95);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .album-art { max-width: 250px; height: 250px; font-size: 6rem; }
+            .playlist { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -230,12 +349,13 @@
     <div class="butterfly" style="top: 60%; left: 5%; animation-delay: 4s;">🦋</div>
     <div class="butterfly" style="top: 70%; right: 10%; animation-delay: 6s;">🦋</div>
     <div class="butterfly" style="top: 40%; left: 80%; animation-delay: 3s;">🦋</div>
+    <div class="butterfly" style="top: 50%; right: 50%; animation-delay: 8s;">🦋</div>
 
     <div class="container">
         <header>
             <h1>Happy Anniversary!</h1>
             <div class="bow">🎀</div>
-            <p class="subtitle">Our Special Songs</p>
+            <p class="subtitle">Our Special Songs Collection</p>
         </header>
 
         <div class="player-container">
@@ -245,14 +365,19 @@
             </div>
 
             <div class="audio-player">
-                <div class="album-art" id="albumArt">🎵</div>
+                <div class="album-art" id="albumArt">
+                    <div class="album-art-content">
+                        <div class="vinyl">💿</div>
+                        <div>🎵</div>
+                    </div>
+                </div>
                 <audio id="audioPlayer" controls>
                     <source id="audioSource" src="" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
                 <div class="controls">
-                    <button class="control-btn" onclick="previousSong()">⏮️</button>
-                    <button class="control-btn" onclick="nextSong()">⏭️</button>
+                    <button class="control-btn" onclick="previousSong()" title="Previous">⏮️</button>
+                    <button class="control-btn" onclick="nextSong()" title="Next">⏭️</button>
                 </div>
             </div>
             
@@ -270,31 +395,129 @@
 
     <script>
         const songs = [
-            { title: "Song 1", file: "songs/song1.mp3" },
-            { title: "Song 2", file: "songs/song2.mp3" },
-            { title: "Song 3", file: "songs/song3.mp3" },
-            { title: "Song 4", file: "songs/song4.mp3" },
-            { title: "Song 5", file: "songs/song5.mp3" },
-            { title: "Song 6", file: "songs/song6.mp3" },
-            { title: "Song 7", file: "songs/song7.mp3" },
-            { title: "Song 8", file: "songs/song8.mp3" },
-            { title: "Song 9", file: "songs/song9.mp3" },
-            { title: "Song 10", file: "songs/song10.mp3" },
-            { title: "Song 11", file: "songs/song11.mp3" },
-            { title: "Song 12", file: "songs/song12.mp3" },
-            { title: "Song 13", file: "songs/song13.mp3" },
-            { title: "Song 14", file: "songs/song14.mp3" },
-            { title: "Song 15", file: "songs/song15.mp3" },
-            { title: "Song 16", file: "songs/song16.mp3" },
-            { title: "Song 17", file: "songs/song17.mp3" },
-            { title: "Song 18", file: "songs/song18.mp3" },
-            { title: "Song 19", file: "songs/song19.mp3" },
-            { title: "Song 20", file: "songs/song20.mp3" }
+            { title: "Aaja Piya Tohe", file: "https://dl.dropboxusercontent.com/scl/fi/ylzx95riik8z96snvefod/Aaja-Piya-Tohe-with-lyrics-Baharon-ke-Sapne-Asha-Parekh-Rajesh-Khanna.mp3?rlkey=d6dcjrfg9zk41h1pr9kfufjb1&dl=1" },
+            { title: "Are Re Are", file: "https://dl.dropboxusercontent.com/scl/fi/zwx33jnkq0sva9qrpatol/Are-Re-Are-Lyrical-Song-Dil-To-Pagal-Hai-Shah-Rukh-Khan-Madhuri-Lata-Udit-Anand-Bakshi.mp3?rlkey=oepym2caq9kcqnie068sk94xf&dl=1" },
+            { title: "Guzarish", file: "https://dl.dropboxusercontent.com/scl/fi/xcz1lwwcvythiqm0f6ee7/Full-Video_-Guzarish-Ghajini-Aamir-Khan-Asin-A.R.-Rahman-Javed-Ali-Sonu-Nigam.mp3?rlkey=ci54qk5u4l0eh06z5b03ndnsw&dl=1" },
+            { title: "Hypnotized", file: "https://dl.dropboxusercontent.com/scl/fi/jh4jwe769iawkoouvqfxm/Hypnotized.mp3?rlkey=w6wb4rcv7m6aw3mevcm0xx7az&dl=1" },
+            { title: "Jo Tu Nahi To Aisa", file: "https://dl.dropboxusercontent.com/scl/fi/7farutb27dzp5z7jnlv1c/Jo-Tu-Nahi-To-Aisa-Main-Chehra-Maand-Slowed-and-Reverb.mp3?rlkey=ej74sjwtmx719lnjc5f6et3hg&dl=1" },
+            { title: "Kabhi Jo Badal Barse", file: "https://dl.dropboxusercontent.com/scl/fi/g9b2enmmg2rziod2kloxx/Kabhi-Jo-Badal-Barse-Song-Video-Jackpot-Arijit-Singh-Sachiin-J-Joshi-Sunny-Leone.mp3?rlkey=efuoizdm3su8dq5iaol3blzbh&dl=1" },
+            { title: "Kara Sevda Guitar", file: "https://dl.dropboxusercontent.com/scl/fi/vg05hwfwxg0timyvj28bm/Kara-Sevda-Guitar.mp3?rlkey=r2th0gucnr9xewcqz9447yw1u&dl=1" },
+            { title: "Maanu Annural Khalid", file: "https://dl.dropboxusercontent.com/scl/fi/ngrgv3pfie3jn0g91pq83/Maanu-Annural-Khalid-Jhol-Visualizer-1.mp3?rlkey=w4s5tbstbhe74xtz4jlqayymq&dl=1" },
+            { title: "Main Koi Aisa Geet Gaoon", file: "https://dl.dropboxusercontent.com/scl/fi/hjjum3lnh6kfqt4jv2gpd/Main-Koi-Aisa-Geet-Gaoon-HD-VIDEO-Shah-Rukh-Khan-Juhi-Chawla-Yes-Boss-90-s-Romantic-Songs.mp3?rlkey=gz3ltfyxsghp3xwv5canytjid&dl=1" },
+            { title: "Nazar na Lag Jaaye", file: "https://dl.dropboxusercontent.com/scl/fi/way30lidrp2oct25s2cfq/Nazar-na-Lag-Jaaye-Lyrics-Ash-King-and-Sachin-jigar.mp3?rlkey=xdxxf8osvnrkqm0xlue4zvgwy&dl=1" },
+            { title: "O Re Piya", file: "https://dl.dropboxusercontent.com/scl/fi/uamb2yne0weysogwa129b/O-Re-Piya-Full-Song-Aaja-Nachle-Madhuri-Dixit-Rahat-Fateh-Ali-Khan-Salim-Sulaiman-Jaideep.mp3?rlkey=hzli7w15b1kxpq80nt9v28eaa&dl=1" },
+            { title: "Pal Pal X Talwiinder Mashup", file: "https://dl.dropboxusercontent.com/scl/fi/jm8j5m76pir1kmydejv6m/Pal-Pal-X-Talwiinder-Mashup-Afusic-Talha-Anjum-x-Aditya-Rikhari-Desifly-Vibes.mp3?rlkey=myrro5vqb1ukcev56d5v1ijfx&dl=1" },
+            { title: "Rauf Faik", file: "https://dl.dropboxusercontent.com/scl/fi/1x42cssfdzzngedvxseqk/Rauf-Faik-Official-audio.mp3?rlkey=jircek8hi7h2sh27c2znivcm9&dl=1" },
+            { title: "Sahiba x Samjho Na Mashup", file: "https://dl.dropboxusercontent.com/scl/fi/q5m7big2y9y9cjut6n6u7/Sahiba-x-Samjho-Na-Mashup-Aditya-Rikhari-Wishes-Best-of-Soulful-Mashup-2025.mp3?rlkey=84g9l2aan74t5q02fsepz6qfh&dl=1" },
+            { title: "Samjho Na X Wishes Mashup", file: "https://dl.dropboxusercontent.com/scl/fi/g3sxv05hwtepfzo4udjz4/Samjho-Na-X-Wishes-Mashup-Aditya-Rikhari-Hasan-Raheem-DJ-Sumit-Rajwanshi.mp3?rlkey=sy7z53hv61tdh8oi3l9rl0rn2&dl=1" },
+            { title: "Baba Ji", file: "https://dl.dropboxusercontent.com/scl/fi/d214spl4q27abjbm0tl3f/Sapna-Choudhary-_-Baba-Ji-Official-Video-Vishu-Puthi-Haryanvi-Song.mp3?rlkey=ggahuz7c20u213ev4p21goijq&dl=1" },
+            { title: "Suno Aisha", file: "https://dl.dropboxusercontent.com/scl/fi/n9ahu3qlnnlcsw9h11bwu/Suno-Aisha-Lyric-Video-Aisha-Sonam-Kapoor-Abhay-Deol-Javed-Akhtar-Amit-Trivedi-Ash-King.mp3?rlkey=oastamunnjt1u82x30njgv5lq&dl=1" },
+            { title: "Tarasti Hai Nigaahein", file: "https://dl.dropboxusercontent.com/scl/fi/ausnfybqk55t7j4gw028p/TARASTI-HAI-NIGAAHEIN-GHALAT-FEHMI-LYRICS-FULL-SONG.mp3?rlkey=f3nsiwli8u6hm8v6bk2aztv2s&dl=1" },
+            { title: "Love Story - Taylor Swift", file: "https://dl.dropboxusercontent.com/scl/fi/3cets3rc8yrc6vgaqpbdw/Taylor-Swift-Love-Story-Lyric-Video-Marry-me-Juliet-you-ll-never-have-to-be-alone.mp3?rlkey=360kpvic3x87wquapht34cy48&dl=1" },
+            { title: "Tu Jaane Na", file: "https://dl.dropboxusercontent.com/scl/fi/y401dykkofpnyuqxv6ssq/Tu-Jaane-Na-Full-Video-Ajab-Prem-Ki-Ghazab-Kahani-Ranbir-Kapoor-Katrina-Atif-Aslam-Pritam.mp3?rlkey=jumse3tyi7cnwqdlutw5chma0&dl=1" },
+            { title: "Cheap Thrills - Sia ft. Sean Paul", file: "https://dl.dropboxusercontent.com/scl/fi/uxt2rdk73ajl8mucf4jcc/Sia-Cheap-Thrills-Official-Lyric-Video-ft.-Sean-Paul-1.mp3?rlkey=sz4pemb4uvoji7cq1bkbjywwp&dl=1" },
+            { title: "Hymn For The Weekend - Coldplay", file: "https://dl.dropboxusercontent.com/scl/fi/7gddfzmn6w47oqjt3zlj1/Coldplay-Hymn-For-The-Weekend-Official-Video-1.mp3?rlkey=7w9vn6qgbn63k9rq2nraqcn20&dl=1" },
+            { title: "7 Years - Lukas Graham", file: "https://dl.dropboxusercontent.com/scl/fi/efkgtaxwqletkwzs0y7mr/Lukas-Graham-7-Years-Official-Music-Video-2.mp3?rlkey=b8h5g0298x55q3y1tbbp9pf2r&dl=1" },
+            { title: "Talking To The Moon - Bruno Mars", file: "https://dl.dropboxusercontent.com/scl/fi/40l9xw26d76n9jbagqjqv/Bruno-Mars-Talking-To-The-Moon-Lyrics-_-Christina-Perri-Ruth-B-Mix.mp3?rlkey=wz2nn4ahwex5kw5eeubnm84n8&dl=1" },
+            { title: "It Will Rain - Bruno Mars", file: "https://dl.dropboxusercontent.com/scl/fi/czysek7r96abek1waprqp/Bruno-Mars-It-Will-Rain-Lyrics.mp3?rlkey=51hah2csw2fepmbdf9j4o5reh&dl=1" },
+            { title: "Mind - Skrillex, Diplo feat. Kai", file: "https://dl.dropboxusercontent.com/scl/fi/5p4ubjs3z6hytm6oibsxn/Skrillex-Diplo-Mind-feat.-Kai-Official-Video.mp3?rlkey=f3yi1jjrpc737q08l03xbgmpx&dl=1" },
+            { title: "Aankhein Khuli - Mohabbatein", file: "https://dl.dropboxusercontent.com/scl/fi/2bkqy5ztoariku7e1afn4/Aankhein-Khuli-Song-_-Mohabbatein-_-Shah-Rukh-Khan-Aishwarya-Rai-_-Lata-Mangeshkar-Udit-Narayan.mp3?rlkey=ww0ymi31cxsycut392mkye7ym&dl=1" },
+            { title: "Mi Gente - J Balvin, Willy William", file: "https://dl.dropboxusercontent.com/scl/fi/728klpf1k8e9wp7r9by75/J-Balvin-Willy-William-Mi-Gente-Official-Video.mp3?rlkey=1fr5e3b9mj5gbkbbnomvj52zr&dl=1" },
+            { title: "Taki Taki - DJ Snake ft. Selena Gomez", file: "https://dl.dropboxusercontent.com/scl/fi/lavf7nrvr7ao5kf18xqep/DJ-Snake-Taki-Taki-ft.-Selena-Gomez-Ozuna-Cardi-B-Official-Music-Video.mp3?rlkey=rnjogz3icw6tg4kg9ufvskpfq&dl=1" },
+            { title: "Despacito - Luis Fonsi ft. Daddy Yankee", file: "https://dl.dropboxusercontent.com/scl/fi/vn8xee8aagq50ryuy7keu/Luis-Fonsi-Despacito-ft.-Daddy-Yankee.mp3?rlkey=lzk73vqwo8vc1pqtyl5k802m8&dl=1" },
+            { title: "Magenta Riddim - DJ Snake", file: "https://dl.dropboxusercontent.com/scl/fi/wk2b1pn8rjye8v1sw7vnx/DJ-Snake-Magenta-Riddim.mp3?rlkey=zrixyfceuxyfnamdmbyi1nsym&dl=1" },
+            { title: "I'm an Albatraoz - AronChupa", file: "https://dl.dropboxusercontent.com/scl/fi/w4kq03fl3in8xnbm9wrg6/AronChupa-Little-Sis-Nora-I-m-an-Albatraoz-_-OFFICIAL-VIDEO.mp3?rlkey=h4r517q0smj58r36n3qtega29&dl=1" },
+            { title: "Turn Down for What - DJ Snake, Lil Jon", file: "https://dl.dropboxusercontent.com/scl/fi/nyn6sczlx7se1iqifp0zb/DJ-Snake-Lil-Jon-Turn-Down-for-What.mp3?rlkey=zbkdbpx7ent9bao2pmfzvcphn&dl=1" },
+            { title: "Lean On - Major Lazer, DJ Snake", file: "https://dl.dropboxusercontent.com/scl/fi/3t74nnsuyastg7p2lr6l2/Major-Lazer-DJ-Snake-Lean-On-feat.-M-Official-4K-Music-Video.mp3?rlkey=vn19t8pjnjpljsho3718qh5a7&dl=1" },
+            { title: "Oh Oh Jane Jaana", file: "https://dl.dropboxusercontent.com/scl/fi/ets9cr161mv6dfj3z8354/Oh-Oh-Jane-Jaana-Salman-Khan-Full-Song-_-Pyaar-Kiya-Toh-Darna-Kya.mp3?rlkey=qvsghfu02qhszzyunfx8l3m8b&dl=1" },
+            { title: "Aa Chal Ke Tujhe", file: "https://dl.dropboxusercontent.com/scl/fi/ccfv4x29pjbssz86vtw3d/Aa-Chal-Ke-Tujhe-with-Lyrics-_-_-Door-Gagan-Ki-Chhaon-Mein.mp3?rlkey=3zqdzihmf7d4sjm3du7z2xa4w&dl=1" },
+            { title: "Sach Keh Raha Hai Deewana", file: "https://dl.dropboxusercontent.com/scl/fi/ikaaxyynm85sa33l8tudm/Sach-Keh-Raha-Hai-Deewana-_-Rehnaa-Hai-Terre-Dil-Mein-_-R.-Madhavan-_-Dia-Mirza-_-K-K.mp3?rlkey=rptl5xokm3yvw8z6jp4ak960x&dl=1" },
+            { title: "Tere Liye - Prince", file: "https://dl.dropboxusercontent.com/scl/fi/w80l6tcpra16w1rewk2f0/Tere-Liye-Lyrical-Prince-_-Vivek-Oberoi-_-Atif-Aslam-Shreya-Ghoshal-_-Sachin-Gupta-_Dance-Songs.mp3?rlkey=gabgsyqw2fvmtdmohduy3drzm&dl=1" },
+            { title: "Na Na Na Na - J Star", file: "https://dl.dropboxusercontent.com/scl/fi/ip9oiteuccja2ky3w8k1l/Na-Na-Na-Na-_-J-Star-_-Full-Official-Video-_-Latest-Punjabi-Song-2015.mp3?rlkey=898koggm4yk0okgpgdjd5sp9k&dl=1" },
+            { title: "Mera Mann Kehne Laga", file: "https://dl.dropboxusercontent.com/scl/fi/whakjzjbohx3ko7h47zxg/Mera-Mann-Kehne-Laga-Full-Song-with-Lyrics-_-Nautanki-Saala-_-Ayushmann-Khurrana-Kunaal-Roy-Kapur.mp3?rlkey=n353jp16c9ek1ypzijw0pd8xv&dl=1" },
+            { title: "Chahun Main Ya Naa (Slowed)", file: "https://dl.dropboxusercontent.com/scl/fi/yk8j6mop98br202kt419y/Chahun-Main-Ya-Naa-_-Slowed-Reverb-_-Full-Song-_-Aashiqui2-_-Use-Headphones-aashiqui2.mp3?rlkey=ik8nbfwtji0i7b625wtg83ee8&dl=1" },
+            { title: "Blue Eyes - Yo Yo Honey Singh", file: "https://dl.dropboxusercontent.com/scl/fi/mtlprq5hnyf7kmjeny0f9/Blue-Eyes-Full-Video-Song-Yo-Yo-Honey-Singh-Blockbuster-Song-Of-2013.mp3?rlkey=o6j2zk4cszxy4cssdfho5zmix&dl=1" },
+            { title: "Mere Sapno Ki Rani", file: "https://dl.dropboxusercontent.com/scl/fi/gqrew3wiziwa36ii3uyz6/Mere-Sapno-Ki-Rani-4K-Song-_-_-_.mp3?rlkey=fqwki6azln7ccbs5f31lm2u8e&dl=1" },
+            { title: "Yeh Ratein Yeh Mausam", file: "https://dl.dropboxusercontent.com/scl/fi/05x70kh4fzdmqqx3lm4rj/Yeh-Ratein-Yeh-Mausam-_-Dilli-Ka-Thug-1958-_-Nutan-_-Asha-Bhosle-_-Kishore-Kumar-Hit-Songs.mp3?rlkey=xxfklpbdikg6vborgt30b5pj1&dl=1" },
+            { title: "Zindagi Ek Safar Hai Suhana", file: "https://dl.dropboxusercontent.com/scl/fi/ucf0k5cfkkrmb488vp3wo/Zindagi-Ek-Safar-Hai-Suhana-_-Andaz-1971-_-Hema-Malini-_-Rajesh-Khanna-_-Kishore-Kumar-Hits.mp3?rlkey=09jq3seuvm6yphlah3pq3k10t&dl=1" },
+            { title: "Yeh Vaada Raha", file: "https://dl.dropboxusercontent.com/scl/fi/2lxebsmxvn0eetbvitpas/Yeh-Vaada-Raha-Lyrical-Video-_-R.-D.-Burman-_-Kishore-Kumar-_-Asha-Bhosle-_-Rishi-Kapoor.mp3?rlkey=ap98dhe63mx0kulbcr48pq2ww&dl=1" },
+            { title: "Dekha Ek Khwab - Silsila", file: "https://dl.dropboxusercontent.com/scl/fi/0j3fur1xgrlvk84boamvu/Dekha-Ek-Khwab-Song-_-Silsila-_-Amitabh-Bachchan-Rekha-_-Kishore-Kumar-Lata-Mangeshkar-Shiv-Hari.mp3?rlkey=txo066zqt04mbn448zbn5iriq&dl=1" },
+            { title: "Kangana Tera Ni", file: "https://dl.dropboxusercontent.com/scl/fi/ds8s3q2ytcgejrznkfuqh/Kangana-Tera-Ni-ABEER-ARORA-_-Hardbazy-_-Laung-Mare-Lashkare-Official-Video.mp3?rlkey=kn582pnkqnlrjvdzxwtzai45a&dl=1" },
+            { title: "Nakhre - Zack Knight", file: "https://dl.dropboxusercontent.com/scl/fi/i076ogn45bpgdpagosuow/Exclusive_-Nakhre-FULL-VIDEO-Song-_-Zack-Knight-_-T-Series.mp3?rlkey=ytd3y59a40fnqbjizvxb2v92d&dl=1" },
+            { title: "All Black - Sukhe", file: "https://dl.dropboxusercontent.com/scl/fi/oohfbrhicrfg5erlsu1s1/All-Black-Full-Song-_-Sukhe-_-Raftaar-_-New-Video-2015-_-T-Series.mp3?rlkey=xt0lt1ey5839c7b44juziutdk&dl=1" },
+            { title: "Na Ja (Slowed)", file: "https://dl.dropboxusercontent.com/scl/fi/jjn0sc9rmllob6vhx3nqy/na-ja-slowed-reverb.mp3?rlkey=cyd1s9w2ynfa7j3109s7wlblk&dl=1" },
+            { title: "Beautiful Now - Zedd (Marshmello Remix)", file: "https://dl.dropboxusercontent.com/scl/fi/dsb6ifmbfo166m9vhty5i/Zedd-Beautiful-Now-ft.-Jon-Bellion-Marshmello-Remix.mp3?rlkey=w5zlxc98ftd18g7iet9vf42e7&dl=1" },
+            { title: "Call Me A Spaceman - Hardwell", file: "https://dl.dropboxusercontent.com/scl/fi/ylfz3qxtbilftwsbhbo81/Hardwell-ft.-Mitch-Crown-Call-Me-A-Spaceman-OFFICIAL-MUSIC-VIDEO.mp3?rlkey=pbniw3mqcxkfxr3qv7m4sxg26&dl=1" },
+            { title: "Kaisa Ye Ishq Hai (Slowed)", file: "https://dl.dropboxusercontent.com/scl/fi/14b4dkwutg2624joeyqmd/Kaisa-Ye-Ishq-Hai-slowed-reverbed-__-REJOICE.mp3?rlkey=s1jum4mvxxyh7fr7ifjigdh52&dl=1" },
+            { title: "Kaun Tujhe - Kishore Kumar AI Cover", file: "https://dl.dropboxusercontent.com/scl/fi/ktadroyd8eji658voo6tu/Kaun-Tujhe-_-Kishore-Kumar-Re-uploaded-_-Full-Video-Song-_-AI-Cover.mp3?rlkey=f2cs0vp2o9eo9s1jh443wso7j&dl=1" },
+            { title: "Shape Of You Mashup - Conor Maynard", file: "https://dl.dropboxusercontent.com/scl/fi/t1k1m2uqsnzb1853d9jeb/Shape-Of-You-x-No-Scrubs-x-Baby-Boy...More-Conor-Maynard-_-Mashup_Cover-Lyrics.mp3?rlkey=0qy9qgpzjo2d6j8nbwewknlde&dl=1" },
+            { title: "Chikni Chameli", file: "https://dl.dropboxusercontent.com/scl/fi/1cymwgv0xpuedt9p3eu5f/Chikni-Chameli-Full-Video-_-Agneepath-_-Katrina-Hrithik-_-Shreya-_-Ajay-Atul.mp3?rlkey=3ma8b4q3ex3k3lb4rc9x5rikn&dl=1" },
+            { title: "Sheila Ki Jawani", file: "https://dl.dropboxusercontent.com/scl/fi/3d1k8n515j3w2677fjmfg/Sheila-Ki-Jawani-Full-Song-_-Tees-Maar-Khan-_-Katrina-Kaif-_-Vishal-Dadlani-Sunidhi-Chauhan.mp3?rlkey=1k6d3lh7o0a9sazyg76gf3u8f&dl=1" },
+            { title: "Desi Boyz Title Song", file: "https://dl.dropboxusercontent.com/scl/fi/qfmurd0e7f8gzh13r5zla/Make-Some-Noise-For-Desi-Boyz-Title-Song-_-Desi-Boyz-_-Akshay-Kumar-John-Abraham-Kumaar.mp3?rlkey=7gyj96h1nek3oxdoris62yu67&dl=1" },
+            { title: "Kar Gayi Chull", file: "https://dl.dropboxusercontent.com/scl/fi/ud91j7gl8lu0cuv6m6blg/Kar-Gayi-Chull-Kapoor-Sons-_-Sidharth-Malhotra-Alia-Bhatt-_-Badshah-_-Amaal-Mallik-_-Fazilpuria.mp3?rlkey=bdyfmwem9f198umgoa4pmymlr&dl=1" },
+            { title: "Lift Karadey - Adnan Sami", file: "https://dl.dropboxusercontent.com/scl/fi/f37lye2h4wuqqq9kekfzs/Lift-Karadey-Adnan-Sami-_-Official-Video-_-Riaz-Ur-Rehman-Saghar.mp3?rlkey=piruwhsc7vmldp0id5gpn5zfg&dl=1" },
+            { title: "Dhoom Machale", file: "https://dl.dropboxusercontent.com/scl/fi/934u6nmmtz3oc3saxu3o6/Dhoom-Machale-Song-_-DHOOM-Esha-Deol-John-Abraham-Abhishek-Uday-Sunidhi-Chauhan-Pritam-Sameer.mp3?rlkey=0yld03xlcf9w4dy6rz5gkkv55&dl=1" },
+            { title: "Bhool Bhulaiyaa Title Track", file: "https://dl.dropboxusercontent.com/scl/fi/26wwdjszsczaj1yib6sob/Bhool-Bhulaiyaa-Title-Track-Full-Video-_-Akshay-Kumar-Vidya-Balan-_-Neeraj-Shridhar-_-Pritam.mp3?rlkey=c3b2hwju2o9l9ildrb1g2ynv2&dl=1" },
+            { title: "Aloo Chaat Title Song", file: "https://dl.dropboxusercontent.com/scl/fi/n37qftxb09pdfkqknm7pa/Aloo-Chaat-Title-song-Rdb-Full-Video-Song.mp3?rlkey=eh20757jtm99ma5ekyztj909b&dl=1" },
+            { title: "OH Ho Ho Ho - Sukhbir", file: "https://dl.dropboxusercontent.com/scl/fi/8os6mlsdjzqtj1nbu9y83/OH-Ho-Ho-Ho-_-ORIGINAL-SONG-_-Ishq-Tera-Tadpave-_-Sukhbir-_-Original-Video.mp3?rlkey=qdqqwnzkkpvprbkk68o4c8vll&dl=1" },
+            { title: "Baadshah O Baadshah", file: "https://dl.dropboxusercontent.com/scl/fi/7vhq1ykklb88kdgj4v15w/Baadshah-O-Baadshah-HD-VIDEO-_-Shahrukh-Khan-Twinkle-Khanna-_-Baadshah-_-Ishtar-Music.mp3?rlkey=w8ovltv4repglml6y6ohg76yh&dl=1" },
+            { title: "Main Hoon Don", file: "https://dl.dropboxusercontent.com/scl/fi/smvuysm0k81143zvv1tqq/Main-Hoon-Don-Lyrical-Video-Song-_-Don-The-Chase-Begins-Again-_-Shaan-_Shahrukh-Khan-Priyanka-Chopra.mp3?rlkey=9x3oa4031zbvnss4bzang8nac&dl=1" },
+            { title: "Teri Deewani - Kailash Kher", file: "https://dl.dropboxusercontent.com/scl/fi/i6dbqi7nnhtu1sktag992/Teri-Deewani-Kailash-Kher-_-Official-Video-_-Kailasa-_-Paresh-_-Naresh.mp3?rlkey=yaz0sp7v4hjvhkzfmqsojzgu4&dl=1" },
+            { title: "Dastaan E Om Shanti Om", file: "https://dl.dropboxusercontent.com/scl/fi/vgfre0uwtrul6vyx6rbvw/Dastaan-E-Om-Shanti-Om-Full-Song-_-Om-Shanti-Om-_-Shahrukh-Khan.mp3?rlkey=c85zp79rnrl5l44n1grezot3q&dl=1" },
+            { title: "Mere Samne Wali Khidki Mein", file: "https://dl.dropboxusercontent.com/scl/fi/ipaw1x621z1tv0m5mqmu8/Mere-Samne-Wali-Khidki-Mein-Padosan-Saira-Banu-Sunil-Dutt-Kishore-Kumar-Old-Hindi-Songs.mp3?rlkey=5aphj83u8oen7dagoukvbr6ic&dl=1" },
+            { title: "Mere Mehboob Qayamat Hogi", file: "https://dl.dropboxusercontent.com/scl/fi/qr9roeomokpqc97o88r8h/MERE-MEHBOOB-QAYAMAT-HOGI-Original-Full-Song-4K-_-_-Kishore-Kumar-_-Mr-X-In-Bombay.mp3?rlkey=68pehcbqb6yunz9h279ywvhnf&dl=1" },
+            { title: "Jeena Isi Ka Naam Hai - Mukesh", file: "https://dl.dropboxusercontent.com/scl/fi/p9b8w7p3sjqazw1hgc984/Mukesh_-Jeena-Isi-Ka-Naam-Hai-Song-_-Raj-Kapoor-_-Old-Hindi-Dard-Bhare-Geet-_-Kisi-Ki-Muskurahaton.mp3?rlkey=zeuxs6mqo8pd3xkyxvwilnz5f&dl=1" },
+            { title: "Main Shayar To Nahin", file: "https://dl.dropboxusercontent.com/scl/fi/4kiwaj3m7y1m33pi4ou08/Main-Shayar-To-Nahin-4K-Song-_-_-Bobby-_-Shailendra-Singh-_-Romantic-Gaane-Hindi.mp3?rlkey=41quw7jptntmwv37dqbfvmh9x&dl=1" },
+            { title: "Chura Liya Hai Tumne", file: "https://dl.dropboxusercontent.com/scl/fi/4qwmi6511ig857n61xru9/Chura-Liya-Hai-Tumne-Jo-Dil-Ko-_-Lyrical-_-Zeenat-Aman-_-Asha-Bhosle-_-Mohammed-Rafi-_-R.-D.-Burman.mp3?rlkey=rdrb5c4756svc80k869ouv2fx&dl=1" },
+            { title: "Kisi Ki Muskurahaton Pe", file: "https://dl.dropboxusercontent.com/scl/fi/apu44zbqmrdtugtchbm9t/Kisi-Ki-Muskurahaton-Pe-Ho-Nisar-_-Raj-Kapoor-_-Anari-_-Mukesh-_-Evergreen-Hindi-Songs-HD.mp3?rlkey=eckczhildq2ffnqwbv4lr7bmf&dl=1" },
+            { title: "Ek Ladki Bheegi Bhaagi Si", file: "https://dl.dropboxusercontent.com/scl/fi/ph9o0xmpkj16byzdjd4gt/Ek-Ladki-Bheegi-Bhaagi-Si-_-Kishore-Kumar-_-Madhubala-_-Chalti-Ka-Naam-Gaadi-1958-_-Old-Hit-Song.mp3?rlkey=xe0yfec2chk87odfrmaasyr66&dl=1" },
+            { title: "Pyar Hua Ikrar Hua", file: "https://dl.dropboxusercontent.com/scl/fi/vvzo30ohmrnvvucrf4mub/_-Pyar-Hua-Ikrar-Hua-_-Shree-420-1955-_-Raj-Kapoor-_-Nargis-_-Lata-Mangeshkar.mp3?rlkey=ynkwyksxn3trer3z38y3sn68b&dl=1" },
+            { title: "No Way To Nowhere - AUR", file: "https://dl.dropboxusercontent.com/scl/fi/y9qqbg1dneyy4yberi2ag/No-Way-To-Nowhere-by-AUR-_-Official-Music-Video.mp3?rlkey=hr4zhu5cgvs2jgexaj0pvi6kd&dl=1" },
+            { title: "Havana Mashup (Nightcore)", file: "https://dl.dropboxusercontent.com/scl/fi/8xw1mvvwjqh7biqv2ie0v/Havana-Shape-of-you-Mi-gente-Mashup-nightcore.mp3?rlkey=h7kg2hpwrwcxathae3uceawle&dl=1" },
+            { title: "Galat Fehmi - Asim Azhar", file: "https://dl.dropboxusercontent.com/scl/fi/jgvhuud0msvi17v25gidd/Galat-Fehmi-LYRICS-Asim-Azhar.mp3?rlkey=j7dcaf9ilw0j6bcr1rwitlmsb&dl=1" },
+            { title: "Shape of You x Blinding Lights", file: "https://dl.dropboxusercontent.com/scl/fi/26nr0zb8flsq0iock2iwg/Shape-of-You-Blinding-Lights-The-Ultimate-Dance-MashUp.mp3?rlkey=g5bvh9xvhnpeky1k55poemvo8&dl=1" },
+            { title: "Shape of You Mashup (Nightcore)", file: "https://dl.dropboxusercontent.com/scl/fi/4ngct9h7p20cpvwrtw7nl/nightcore-__shape-of-you-mashup.mp3?rlkey=ndltq2gri8u72psvqb31b9nlt&dl=1" },
+            { title: "Afterhours - TroyBoi feat. Diplo", file: "https://dl.dropboxusercontent.com/scl/fi/oqde58ga63viqn3trnrop/TroyBoi-Afterhours-feat.-Diplo-Nina-Sky.mp3?rlkey=3j5gb0mosqzvcpj5ej9nkuywi&dl=1" },
+            { title: "Lat Lag Gayee - Race 2", file: "https://dl.dropboxusercontent.com/scl/fi/u3ymaxokuoqhprurh64f3/Lat-Lag-Gayee-_-Race-2-_-Saif-Ali-Khan-Jacqueline-_-Benny-Dayal-Shalmali-_-Pritam-_-Party-Song.mp3?rlkey=suuyyba18uw64nf3w4vjqzj9q&dl=1" },
+            { title: "Twist - Love Aaj Kal", file: "https://dl.dropboxusercontent.com/scl/fi/g58krgju1rcgc3r92wpd7/Twist-Lyrical-Video-_-Saif-Ali-Khan-Deepika-Padukone-_-Love-Aaj-Kal-_-Neeraj-Shridhar-_-Pritam.mp3?rlkey=73dt4872vdouygcr2utr75orp&dl=1" },
+            { title: "Pyar Ki Pungi - Agent Vinod", file: "https://dl.dropboxusercontent.com/scl/fi/p4be20hdaqe2vuhhgua6m/Agent-Vinod-Pyar-Ki-Pungi-Full-Video-Song-HD-_-Saif-Ali-Khan-_-Pritam.mp3?rlkey=duivwb7savngdju18j3fsoxyd&dl=1" },
+            { title: "Why This Kolaveri Di", file: "https://dl.dropboxusercontent.com/scl/fi/4o2bac2zcghppw439449l/3-Why-This-Kolaveri-Di-Official-Video-_-Dhanush-_-Anirudh-Ravichander-_-Shruti-Haasan.mp3?rlkey=s4sf3cer5ufybhmgqq4mh9gav&dl=1" },
+            { title: "Chammak Challo - Ra One", file: "https://dl.dropboxusercontent.com/scl/fi/gnwvj5ia653jpdzyuyiv6/Lyrical_-Chammak-Challo-_-Ra-One-_-ShahRukh-Khan-_-Kareena-Kapoor.mp3?rlkey=gl8ocuf6jtmpxtxuf2k8xhide&dl=1" },
+            { title: "Balam Pichkari", file: "https://dl.dropboxusercontent.com/scl/fi/7n1bl96ihcgurc2kw2jmj/Balam-Pichkari-Full-Song-Video-Yeh-Jawaani-Hai-Deewani-_-PRITAM-_-Ranbir-Kapoor-Deepika-Padukone.mp3?rlkey=u8mgcjqyzijpbyxwuvdzy0vo1&dl=1" },
+            { title: "Nasha Mashup", file: "https://dl.dropboxusercontent.com/scl/fi/dnvi8ddowycx3ep94oerk/Nasha-x-Let-The-Music-Play-DJLEMONOFFICIAL-JAZ-Scape-Mashup.mp3?rlkey=gmexvxn1gb96d3bvsw6h82n20&dl=1" },
+            { title: "Senorita - Zindagi Na Milegi Dobara", file: "https://dl.dropboxusercontent.com/scl/fi/rg625qe4gkrmpmyb8rnx0/Senorita-Zindagi-Na-Milegi-Dobara-Full-HD-Video-Song-_-Farhan-Akhtar-Hrithik-Roshan-Abhay-Deol.mp3?rlkey=5vina3w9k5c70k1s1lvgkc4o3&dl=1" },
+            { title: "Pappu Can't Dance", file: "https://dl.dropboxusercontent.com/scl/fi/n7tzo88w3fku0emztv7f9/Full-Video_-Pappu-Can-t-Dance-_-Jaane-Tu-Ya-Jaane-Na-_-Imran-Khan-_-A.R.-Rahman.mp3?rlkey=5ohmytebo5q9q2j4w1bligg6c&dl=1" },
+            { title: "Afghan Jalebi", file: "https://dl.dropboxusercontent.com/scl/fi/iw75zk28pbcj6a58i006j/Afghan-Jalebi-Ya-Baba-FULL-VIDEO-Song-_-Phantom-_-Saif-Ali-Khan-Katrina-Kaif-Pritam-Asrar-T-Series.mp3?rlkey=qrx0eccsaj2icxrdy2os66xui&dl=1" },
+            { title: "Beggin - Måneskin", file: "https://dl.dropboxusercontent.com/scl/fi/gb0rdle58jz2sia2zd68c/M-neskin-Beggin-Lyrics.mp3?rlkey=ooqhrrti829xfg3repjfaqkjt&dl=1" },
+            { title: "Die With A Smile x Teri Deewani", file: "https://dl.dropboxusercontent.com/scl/fi/2g560ixr75t5t0txvf488/Die-With-A-Smile-X-Teri-Deewani-Mashup-_-Lady-Gaga-Bruno-Mars-_-Kailash-Kher-_-Arjun-Roy.mp3?rlkey=lbe8e0fne26hsaxtux7pes84a&dl=1" },
+            { title: "Oh Sahib", file: "https://dl.dropboxusercontent.com/scl/fi/2g0uaodo888rhar3h009u/Oh-Sahib-Original-Soundtrack-Of-Abdullahpur-Ka-Devdas-_-Zain-Zohaib.mp3?rlkey=q54bj3xu5a7y3dmd9iz2l58ac&dl=1" },
+            { title: "Fairytale (Nightcore)", file: "https://dl.dropboxusercontent.com/scl/fi/1oun7i8hlxeodxkq5dfrq/fairytale-nightcore-lyrics.mp3?rlkey=s33phsjsajchqdnb257mj1vw8&dl=1" },
+            { title: "Bade Achhe Lagte Hai", file: "https://dl.dropboxusercontent.com/scl/fi/1coff6q2niswn135esywo/Bade-Achhe-Lagte-Hai-Song-with-lyrics-_-_-Balika-Badhu-_-Sachin-_-Rajni.mp3?rlkey=0l4sybbk55a3j1a1yzqu7zsqj&dl=1" },
+            { title: "Jane Woh Kaise Log The", file: "https://dl.dropboxusercontent.com/scl/fi/d3mu8pxf44mo8l5yk5go4/Jane-Woh-Kaise-Log-The-Guru-Dutt-Hemant-Kumar-Pyaasa-Song.mp3?rlkey=4dxuujos1lt2qt57xnu2lzovl&dl=1" },
+            { title: "Aadat Unplugged - Atif Aslam", file: "https://dl.dropboxusercontent.com/scl/fi/0b1efkqlgea41doo79sb6/Atif-Aslam-Mesmerizing-Aadat-Unplugged-Session-Dubaibliss.com.mp3?rlkey=96fmejw6f79gkhwigy55v478w&dl=1" },
+            { title: "Sochta Hoon (Slowed)", file: "https://dl.dropboxusercontent.com/scl/fi/kfdp1cywouax54mdgj55z/SOCHTA-HOON-SLOWED-x-REVERB-__-USTAD-NUSRAT-FATEH-ALI-KHAN-__.mp3?rlkey=rskiqpydpwtjz9cb8w0bzptac&dl=1" },
+            { title: "Tujh Mein Rab Dikhta Hai", file: "https://dl.dropboxusercontent.com/scl/fi/pfid963bwuexuivzt28ye/Tujh-Mein-Rab-Dikhta-Hai-Song-_-Rab-Ne-Bana-Di-Jodi-_-Shah-Rukh-Khan-Anushka-Sharma-_-Roop-Kumar.mp3?rlkey=77pgfhdfnpflyjd3ihf64q5nb&dl=1" },
+            { title: "Chand Sifarish - Fanaa", file: "https://dl.dropboxusercontent.com/scl/fi/crj7pm85dkk1040wddmrv/Chand-Sifarish-_-Full-Song-_-Fanaa-_-Aamir-Khan-Kajol-_-Shaan-Kailash-Kher-_-Jatin-Lalit-_-Prasoon.mp3?rlkey=g0p2l208qkb79opglb3y2c7na&dl=1" },
+            { title: "No Handz - Waka Flocka (CRNKN Remix)", file: "https://dl.dropboxusercontent.com/scl/fi/k9eudtzyzg5o536ydpgcl/Waka-Flocka-No-Handz-CRNKN-Remix.mp3?rlkey=ihcuv6g3phejbu9l3lxbd0vtr&dl=1" },
+            { title: "Zara Sa - KK", file: "https://dl.dropboxusercontent.com/scl/fi/74p83pbl36pv3ptrudcrd/KK-_-Zara-Sa-Audio-Lyrical-_-Emraan-Hashmi-_-Sonal-Chauhan-_-Pritam-_-Sayeed-Quadri-_-Jannat.mp3?rlkey=jdj3ri8hwndqilws7cbaxs9a8&dl=1" },
+            { title: "Tujhe Sochta Hoon - KK", file: "https://dl.dropboxusercontent.com/scl/fi/n7k7ktbla2lwirdedjqie/Tujhe-Sochta-Hoon-_-Jannat-2-_-Emraan-Hashmi-_-Esha-_-KK-_-Pritam-_-Sayeed-Quadri.mp3?rlkey=ryhfja7g1cusvkzlc0ganuyky&dl=1" },
+            { title: "Tu Hi Haqeeqat", file: "https://dl.dropboxusercontent.com/scl/fi/j0u3dyvggznxravs8hos1/Tu-Hi-Haqeeqat-Lyrical-Song-_-Tum-Mile-_-Emraan-Hashmi-_-Soha-Ali-Khan-_-Javed-Ali-_-Pritam.mp3?rlkey=eeoyuvyg8kdhz97pfxvwopsmd&dl=1" },
+            { title: "Dil Ibaadat Kar Raha Hai - KK", file: "https://dl.dropboxusercontent.com/scl/fi/v6954n7vespinp1tp9bfq/KK-_-Dil-Ibaadat-Kar-Raha-Hai-Lyrical-Video-_-Emraan-Hashmi-_-Soha-Ali-Khan-_-Pritam-_-Tum-Mile.mp3?rlkey=n283d9jyllxm0m4nujsarza99&dl=1" },
+            { title: "Dil Lagana Mana Tha", file: "https://dl.dropboxusercontent.com/scl/fi/vud93e23bkxhi96zy85ck/Dil-Lagana-Mana-Tha-Official-MV-Krish-Kishore-Mondal-_-Kunaal-V-Devv-S-_-Sanam-Johar-Ashi-Singh.mp3?rlkey=0ewee480qx2kbsy82z21og6pg&dl=1" },
+            { title: "Mere Bina - Crook", file: "https://dl.dropboxusercontent.com/scl/fi/hrbfr8shd3gobe308pc0i/Mere-Bina-Full-Video-Crook_-Emraan-Hashmi-Neha-Sharma-_-Nikhil-D-Souza-_-Pritam-_-Mukesh-Bhatt.mp3?rlkey=y0diq3n7wlwovu0csa2zmyoo5&dl=1" },
+            { title: "Main Agar Kahoon", file: "https://dl.dropboxusercontent.com/scl/fi/c4sygsjapiqtldymkkumn/LYRICAL_-Main-Agar-Kahoon-_-Om-Shanti-Om-_-Shahrukh-Khan-Deepika-Padukone-_-Sonu-Nigam-Shreya-Ghosal.mp3?rlkey=r9es9so2y12538jd10npyccxd&dl=1" },
+            { title: "Aaj Kal Tere Mere Pyar Ke Charche", file: "https://dl.dropboxusercontent.com/scl/fi/0rxp8uoq89f4n537ksq1e/Aaj-Kal-Tere-Mere-Pyar-Ke-Charche-Mohd.Rafi-_-Shammi-Kapoor-Mumtaz-_-Brahmachari.mp3?rlkey=wv6kcd4ac6xt636tgknrlen8k&dl=1" },
+            { title: "Havana - Camila Cabello", file: "https://dl.dropboxusercontent.com/scl/fi/5hsaoxq6sjdubsy7lbsb4/Camila-Cabello-Havana-Audio-ft.-Young-Thug.mp3?rlkey=04yuchg6am6la3xmaw5c4t2zp&dl=1" }
         ];
 
         let currentSongIndex = -1;
         const audioPlayer = document.getElementById('audioPlayer');
         const audioSource = document.getElementById('audioSource');
+
+        const albumIcons = [
+            '💿', '🎵', '🎶', '💕', '🎀', '🦋', '😻', '💖', '🌸', '🌹', 
+            '✨', '💝', '🎧', '🎼', '🎤', '🌺', '💗', '🎹', '🎸', '🥁'
+        ];
 
         function playSong(index) {
             currentSongIndex = index;
@@ -307,10 +530,15 @@
             document.getElementById('songTitle').textContent = song.title;
             document.getElementById('songNumber').textContent = `Track ${index + 1} of ${songs.length}`;
             
-            // Update album art animation
+            // Update album art with cute rotating vinyl and random icon
             const albumArt = document.getElementById('albumArt');
-            const icons = ['🎵', '🎶', '💕', '🎀', '🦋', '😻'];
-            albumArt.textContent = icons[index % icons.length];
+            const randomIcon = albumIcons[index % albumIcons.length];
+            albumArt.innerHTML = `
+                <div class="album-art-content">
+                    <div class="vinyl">💿</div>
+                    <div style="font-size: 4rem;">${randomIcon}</div>
+                </div>
+            `;
             
             // Update active state
             document.querySelectorAll('.song-item').forEach((item, i) => {
